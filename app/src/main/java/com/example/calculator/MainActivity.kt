@@ -27,7 +27,35 @@ class MainActivity : AppCompatActivity() {
         resultsTV.text = ""
     }
 
-    fun equalsAction(view: View) {}
+    fun equalsAction(view: View)
+    {
+        resultsTV.text = calculateResults()
+    }
+
+    private fun calculateResults(): String
+    {
+        return ""
+    }
+
+    private fun digitsOperators():MutableList<Any>
+    {
+        val list = mutableListOf<Any>()
+        var currentDigit = ""
+        for(character in workingsTV.text)
+        {
+            if(character.isDigit() || character == '.')
+                currentDigit += character
+            else
+            {
+                list.add(currentDigit.toFloat())
+                currentDigit = ""
+                list.add(character)
+            }
+        }
+
+        return list
+    }
+
     fun operationAction(view: View)
     {
         if(view is Button && canAddOperation)
