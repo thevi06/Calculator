@@ -64,7 +64,27 @@ class MainActivity : AppCompatActivity() {
                 val operator = passedList[i]
                 val prevDigit = passedList[i] as Float
                 val nextDigit = passedList[i] as Float
+                when(operator)
+                {
+                    'x' ->
+                    {
+                        newList.add(prevDigit * nextDigit)
+                        restartIndex = i + 1
+                    }
+                    '/' ->
+                    {
+                        newList.add(prevDigit / nextDigit)
+                        restartIndex = i + 1
+                    }
+                    else ->
+                    {
+                        newList.add(prevDigit)
+                        newList.add(operator)
+                    }
+                }
             }
+
+            
         }
 
         return newList
