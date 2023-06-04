@@ -57,6 +57,15 @@ class MainActivity : AppCompatActivity() {
         val newList = mutableListOf<Any>()
         var restartIndex = passedList.size
 
+        for(i in passedList.indices)
+        {
+            if(passedList[i] is Char && i != passedList.lastIndex && i < restartIndex)
+            {
+                val operator = passedList[i]
+                val prevDigit = passedList[i] as Float
+                val nextDigit = passedList[i] as Float
+            }
+        }
 
         return newList
     }
