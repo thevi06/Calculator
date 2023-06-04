@@ -34,7 +34,31 @@ class MainActivity : AppCompatActivity() {
 
     private fun calculateResults(): String
     {
+        val digitsOperators = digitsOperators()
+        if(digitsOperators.isEmpty()) return ""
+
+        val timesDivision = timesDivisionCaculate(digitsOperators)
+
         return ""
+    }
+
+    private fun timesDivisionCaculate(passedList: MutableList<Any>): MutableList<Any>
+    {
+        var list = passedList
+        while (list.contains('x') || list.contains('/'))
+        {
+            list = calcTimesDiv(list)
+        }
+        return list
+    }
+
+    private fun calcTimesDiv(passedList: MutableList<Any>): MutableList<Any>
+    {
+        val newList = mutableListOf<Any>()
+        var restartIndex = passedList.size
+
+
+        return newList
     }
 
     private fun digitsOperators():MutableList<Any>
@@ -52,6 +76,9 @@ class MainActivity : AppCompatActivity() {
                 list.add(character)
             }
         }
+
+        if(currentDigit!= "")
+            list.add(currentDigit.toFloat())
 
         return list
     }
